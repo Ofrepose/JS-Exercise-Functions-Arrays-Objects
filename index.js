@@ -251,11 +251,24 @@ function getOlderCars(inventory, num) {
  * in the same order as they appear in the original inventory.
 */
 function getGermanCars(inventory) {
+  // I WROTE 2 OPTIONS. WASNT SURE IF .INCLUDES() OR .INDEXOF() METHODS WERE ALLOWED SO CREATED THE TYPICAL FOR LOOPS FOR SAFETY BELOW
+
+  // const germanCars = ['Audi','Mercedes-Benz','Volkswagen','BMW'];
+  // const cars = [];
+  // for (x in inventory){
+  //   if (germanCars.includes(inventory[x].car_make)){
+  //     cars.push(inventory[x]);
+  //   }
+  // }
+  // return cars;
+
   const germanCars = ['Audi','Mercedes-Benz','Volkswagen','BMW'];
   const cars = [];
   for (x in inventory){
-    if (germanCars.includes(inventory[x].car_make)){
-      cars.push(inventory[x]);
+    for (y in germanCars){
+      if (inventory[x].car_make === germanCars[y]){
+        cars.push(inventory[x]);
+      }
     }
   }
   return cars;
